@@ -25,14 +25,26 @@ const bacaData = (fnCallback) => {
   let hasilBacaFile = [];
 
   fs.readFile(file1,"utf-8",(err,data) => {
+
+    if(err){
+      return console.log('Error Data 1 ' + err)
+    }
     bacaFilenya = JSON.parse(data);
     hasilBacaFile.push(bacaFilenya.message.split(" ")[1]);
 
     fs.readFile(file2,"utf-8",(err,data) => {
+
+      if(err){
+        return console.log('Error Data 2 ' + err)
+      }
       bacaFilenya = JSON.parse(data);
       hasilBacaFile.push(bacaFilenya[0].message.split(" ")[1]);
       
       fs.readFile(file3,"utf-8",(err,data) => {
+
+        if(err){
+          return console.log('Error Data 3 ' + err)
+        }
         bacaFilenya = JSON.parse(data);
         hasilBacaFile.push(bacaFilenya[0].data.message.split(" ")[1]);
 
